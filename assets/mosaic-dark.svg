@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 84 84" width="168" height="168">
+  <style>
+    .g { animation: twist 7.2s cubic-bezier(.34,1.56,.64,1) infinite; transform-origin: 42px 42px; }
+    .t {
+      fill: #e8e8e4;
+      transform-box: fill-box; transform-origin: center;
+      animation: weave 7.2s ease-in-out infinite, pulse 7.2s ease-in-out infinite;
+    }
+    .c {
+      fill: none; stroke: #e8e8e4; stroke-width: 1.8;
+      transform-box: fill-box; transform-origin: center;
+      animation: core 7.2s ease-in-out infinite, pulse 7.2s ease-in-out infinite;
+    }
+    /* serpentine thread order: 0 1 2 / 5 4 3 / 6 7 8 */
+    .d0 { animation-delay: 0s, 0s; }
+    .d1 { animation-delay: .38s, .38s; }
+    .d2 { animation-delay: .76s, .76s; }
+    .d3 { animation-delay: 1.14s, 1.14s; }
+    .d4 { animation-delay: 1.52s, 1.52s; }
+    .d5 { animation-delay: 1.9s, 1.9s; }
+    .d6 { animation-delay: 2.28s, 2.28s; }
+    .d7 { animation-delay: 2.66s, 2.66s; }
+    .d8 { animation-delay: 3.04s, 3.04s; }
+    /* colour threads through, then leaves — rest state is monochrome, so the
+       loop restart and the 90deg twist (4-fold symmetric grid) are both seamless */
+    @keyframes weave {
+      0%, 2% { fill: #e8e8e4; }
+      6%     { fill: #2e5bff; }
+      10%    { fill: #00bfff; }
+      14%    { fill: #4caf7a; }
+      20%, 100% { fill: #e8e8e4; }
+    }
+    @keyframes core {
+      0%, 2%  { stroke: #e8e8e4; fill: rgba(0,191,255,0); }
+      6%      { stroke: #00bfff; fill: rgba(0,191,255,1); }
+      13%     { stroke: #00bfff; fill: rgba(0,191,255,1); }
+      20%, 100% { stroke: #e8e8e4; fill: rgba(0,191,255,0); }
+    }
+    @keyframes pulse {
+      0%, 2% { transform: scale(1); }
+      8%     { transform: scale(1.18); }
+      17%, 100% { transform: scale(1); }
+    }
+    @keyframes twist {
+      0%, 58% { transform: rotate(0deg); }
+      76%, 100% { transform: rotate(90deg); }
+    }
+  </style>
+  <g class="g">
+    <rect class="t d0" x="6"  y="6"  width="20" height="20" rx="4.5"/>
+    <rect class="t d1" x="32" y="6"  width="20" height="20" rx="4.5"/>
+    <rect class="t d2" x="58" y="6"  width="20" height="20" rx="4.5"/>
+    <rect class="t d5" x="6"  y="32" width="20" height="20" rx="4.5"/>
+    <rect class="c d4" x="33" y="33" width="18" height="18" rx="4"/>
+    <rect class="t d3" x="58" y="32" width="20" height="20" rx="4.5"/>
+    <rect class="t d6" x="6"  y="58" width="20" height="20" rx="4.5"/>
+    <rect class="t d7" x="32" y="58" width="20" height="20" rx="4.5"/>
+    <rect class="t d8" x="58" y="58" width="20" height="20" rx="4.5"/>
+  </g>
+</svg>
