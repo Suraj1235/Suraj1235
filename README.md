@@ -5,8 +5,6 @@
   <img src="assets/mosaic-light.svg" width="168" alt="">
 </picture>
 
-building things that build things.
-
-some of it escapes.
+Here's an animation now go away
 
 </div>
